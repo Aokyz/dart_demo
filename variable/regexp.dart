@@ -16,16 +16,23 @@ void main(){
     for(Match m in matches){
       for(int i=0;i<m.groupCount+1;i++){
         String match = m.group(i);
-        print("Group[$i]:$match");
+//        print("Group[$i]:$match");
       }
     }
     String mm;
-    print( mm ?? 'dfe');
+//    print( mm ?? 'dfe');
 
     Map mop;
 //    print(mop['ss']??'没有');  // 这样会报错，因为mop已经是null了
-  print(mop==null ? 'meiyou' : mop['ss']);
+//  print(mop==null ? 'meiyou' : mop['ss']);
 
+ RegExp exps4 = new RegExp(r"^[0-9]*$");
+ print(exps4.hasMatch('899111'));
+  RegExp expDouble = new RegExp(r"^[0-9]*\.[0-9]*$");
+  print(expDouble.hasMatch('89911u1'));
+  List lit = [];
+  print(lit[0]);
+print('1111');
 
 
 //  正则    正则

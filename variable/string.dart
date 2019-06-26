@@ -17,6 +17,7 @@ void main(){
   List list = [{'name':'de'},{'name':'dse'},{'name':'dee'},{'name':'d3e'},{'name':'d7e'},];
   var mm = list.where((item)=>item['name']=='de');
   print(mm.runtimeType);
+  print('1111${'Other desf'.contains('Other')}');
 
   // 字符串不足位数左边补0  可以用于时间日期的格式化
   String minute = '3';

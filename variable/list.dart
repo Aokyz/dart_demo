@@ -103,6 +103,14 @@ void main() {
 // 将数组变成字符串
   String str = list6.join();
   print(str);
-
+// 排序
+List<Map<String,dynamic>> list4 = new List();
+list4 = [{'name':'sfde','age':14,'score':0.98},
+{'name':'sfde2','age':17,'score':0.968},
+{'name':'sfde3','age':18,'score':0.898},
+{'name':'sfde2','age':17,'score':0.778},
+];
+list4.sort((first,second)=>first['score'].compareTo(second['score']));
+print(list4);
 }
 

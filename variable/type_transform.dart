@@ -12,15 +12,28 @@ void main(){
   sb..write('foo')
       ..write('bar');
 //  print(sb);(r'/^1[34578]\d{9}$/')
+
+
+  /*parse和tryParse的区别就是：当传入的值不合法时，parse是直接抛出错误，而tryParse是返回null，不会报错*/
 // String -> int
-var one = int.parse('1');
+var one = int.tryParse('1');
 assert(one == 1);
 
-var str2 = int.parse('你师父大幅度sss');
-print(int.parse('你师父大幅度sss'));
 // String -> double
-var onePointOne = double.parse('1.1');
-assert(onePointOne == 1.1);
+  double score = double.tryParse('yuuu');
+  assert(score is double);
+  print('tryParse:$score');
+
+var str2 = int.tryParse('你师父大幅度sss');
+print(str2);
+
+// String -> double
+var onePointOne = double.parse('1.3456');
+//assert(onePointOne == 1.1);
+  print('tryParse:$onePointOne');
+
+
+
 
 // int -> String
 String oneAsString = 1.toString();

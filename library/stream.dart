@@ -11,10 +11,11 @@ import 'dart:async';
 * */
 
 /*
-* 创建stream的三个构造方法
+* 创建stream的四个构造方法
 *   1、Stream.fromFuture:从Future创建新的单订阅流,当future完成时将触发一个data或者error，然后使用Down事件关闭这个流。
 *   2、Stream.fromFutures:从一组Future创建一个单订阅流，每个future都有自己的data或者error事件，当整个Futures完成后，流将会关闭。如果Futures为空，流将会立刻关闭
 *   3、Stream.fromIterable:创建从一个集合中获取其数据的单订阅流
+*   4、Stream.periodic:定时出发动作作为Stream的事件源构造Stream
 * */
 
 void main(){
@@ -42,6 +43,6 @@ void main(){
   );
   controller.stream
             .transform(transformer)
-            .listen((data)=>print(data),onError: (err)=>print(err));
-  controller.sink.add(100);
+            .listen((data)=>print('data'),onError: (err)=>print('error'));
+  controller.sink.add(120);
 }

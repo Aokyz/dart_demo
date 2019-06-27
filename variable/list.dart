@@ -5,6 +5,24 @@
 * any和every就是按照意思来
 * */
 
+/*
+* 对数组的操作方法分为两种：
+* 1、会改变数组本身的：shuffle() ,
+*                   sublist(int start, [int end])
+*                   add(),addAll(),
+*                   removeLast(),removeAt(int index),remove(dynamic data),removeRange(start,end)含头不含尾
+*                   insert(int index,dynamic insert),insertAll(int index,dynamic insert)
+*                   replaceRange(int start,int end [])  替换，包含头不包含尾, fillRange(int start,int end,[E fillValue]) 填充，含头不含尾，getRange(int start, int end);
+* 2、会返回用()包裹的数据，但不会改变数组本身 ： where(),take(),firstWhere(),reduce()....
+*
+* 数组的属性：first,last,length
+*             indexOf(E element, [int start = 0]),找到元素的下标
+*             indexWhere(bool test(E element), [int start = 0])，找到符合条件的元素的下标
+*             lastIndexWhere(bool test(E element), [int start = 0])，lastIndexOf(E element, [int start]);从后往前找
+*           sublist(int start, [int end])
+*
+* */
+
 
 
 void main() {
@@ -78,22 +96,27 @@ void main() {
 //int random =  new Random().nextInt(10);
 
   // 替换数组中的元素
-  List list5 = ['123', '333', '4444'];
-  List list7 = ['555'];
-  list5.replaceRange(1, 2, list7);
-//        print(list5);
-  int index = 1;
+//  List list5 = ['123', '333', '4444'];
+//  List list7 = ['555'];
+//  list5.replaceRange(1, 2, list7);
+//        print('list5；$list5');
+//        list5.reduce((val1,val2)=>val1+val2);
+//        print(list5.reduce((val1,val2)=>val1+val2));
+//  int index = 1;
 //     print(index++)
-  List list6 = [];
-  int j = -2;
-  for (int i = 0; i < list5.length; i++) {
-    j = j + 2;
-    list6.add(list5[i]);
-    if (i != list5.length - 1) {
-      list6.add('__');
-    }
-  }
-  print(list6);
+//  List list6 = [];
+//  int j = -2;
+//  for (int i = 0; i < list5.length; i++) {
+//    j = j + 2;
+//    list6.add(list5[i]);
+//    if (i != list5.length - 1) {
+//      list6.add('__');
+//    }
+//  }
+//  print(list6);
+
+
+
 // 找到数组中相应的值，并将该值替换掉
 //List list8 = ['dff'];
 //list6.replaceRange(list6.indexOf('__'), list6.indexOf('__')+1, list8);
@@ -101,16 +124,55 @@ void main() {
 //
 
 // 将数组变成字符串
-  String str = list6.join();
-  print(str);
+//  String str = list6.join();
+//  print(str);
+
+
 // 排序
-List<Map<String,dynamic>> list4 = new List();
-list4 = [{'name':'sfde','age':14,'score':0.98},
-{'name':'sfde2','age':17,'score':0.968},
-{'name':'sfde3','age':18,'score':0.898},
-{'name':'sfde2','age':17,'score':0.778},
-];
-list4.sort((first,second)=>first['score'].compareTo(second['score']));
-print(list4);
+//List<Map<String,dynamic>> list4 = new List();
+//list4 = [{'name':'sfde','age':14,'score':0.98},
+//{'name':'sfde2','age':17,'score':0.968},
+//{'name':'sfde3','age':18,'score':0.898},
+//{'name':'sfde2','age':17,'score':0.778},
+//];
+//list4.sort((first,second)=>first['score'].compareTo(second['score']));
+//print(list4);
+
+
+// 从数组中找到一个符合条件的
+//  List<int> list10= [1,2,3,4];
+//list10.firstWhere((e)=>e>3);
+//print(list10.firstWhere((e)=>e<3,orElse: ()=>2));
+
+// 将数组中原来的数字进行拓展
+//print(list10.expand((int x)=>[x,x]));
+//print(list10.expand((int x)=>[x,x]).take(5));
+//print(list10.reduce((p,c) => p+c));
+
+  // take  将数组操作之后的返回值转换成List
+// print(list10.take(3));
+// List m = list10.take(3).toList();
+// print(m);
+
+
+// asMap() 将数组变成map，不会改变原数组，key为从0开始的整数，
+  List<String> words = ['fee', 'fi', 'fo', 'fum'];
+  Map<int, String> map = words.asMap();
+  print('wordes:$words');
+  print( map.keys.toList());
+  print(map);
+
+
+  // fillRange(int start,int end,[E fillValue])
+  List<int> intList = [1,2,3,4];
+  intList.fillRange(1, 2);
+  print(intList);
+
+  //sublist(int start, [int end])
+  List<String> colors = ["red", "green", "blue", "orange", "pink"];
+  print(colors.sublist(1, 3));
+  print(colors);
+
+
 }
 
